@@ -10,19 +10,13 @@ Welcome to dandan's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-Events
-=======
-
-
-- 2017-10-14 move to another github project
-- 2017-06-25 add function system.clear
-- 2017-06-23 add function system.getch
-- 2017-06-23 Support python3
-- 2017-06-23 Add TestCase
-
-
 dandan package
 ==============
+
+.. automodule:: dandan.__init__
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
 Submodules
 ----------
