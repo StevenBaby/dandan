@@ -2,7 +2,14 @@ from __future__ import unicode_literals, absolute_import
 
 
 def local_ip():
-    '''get local ip address'''
+    '''get local ip address for IP V4
+
+    Returns:
+        string: current machine ip
+
+    TODO:
+        ip v6 not implement
+    '''
 
     import socket
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -20,20 +27,28 @@ def local_ip():
 def html(url, **kwargs):
     '''get html string object by url
 
-        kwargs:
+    User-Agent :
+        default "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0"
+        modify User-Agent put to headers in kwargs
 
-            timeout : set get timeout default 60
-            retry: set retry count default 0
-            headers: set http headers
-            encoding: page encoding
+    Args:
+        * url (string): requested http url
+        * kwargs
+        * timeout : set get timeout default 60
+        * headers : set http headers have User-Agent
+        * params : set http parameters
+        * retry : set retry count default 0
+        * encoding : page encoding default utf8
+        * method : set http method default get
+        * json : if True return json else return string
 
-        notice:
-            default User-Agent : "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0"
+    Returns:
+        string: if request correct else None
     '''
 
     from dandan import value
     import requests
-    import traceback
+    # import traceback
 
     kwargs = value.AttrDict(kwargs)
     timeout = kwargs.timeout or 60
@@ -64,7 +79,15 @@ def html(url, **kwargs):
 
 
 def soup(url, **kwargs):
-    '''get BeautifulSoup object by url familiar html by return BeautifulSoup object'''
+    '''get BeautifulSoup object by url
+
+    Args:
+        * url (string): requested http url
+        * \*\*kwargs: same as :py:func:`html`
+
+    Returns:
+        BeautifulSoup: if request correct else None
+    '''
 
     from bs4 import BeautifulSoup as bs
     text = html(url, **kwargs) or ""
@@ -72,13 +95,28 @@ def soup(url, **kwargs):
 
 
 def json(url, **kwargs):
+    '''get json object by url familiar html if http return json or None
 
+    Args:
+        * url (string): requested http url
+        * \*\*kwargs: same as :py:func:`html`
+
+    Returns:
+        json: if request correct else None
+    '''
     return html(url, json=True, **kwargs)
 
 
 def whois(ip):
-    '''get whois infommation (developing)'''
+    """
+    Get whois infommation (developing)
 
+    Args:
+        * ip (string): request for whois
+
+    Returns:
+        * AttrDict: if get whois currect else None
+    """
     import value
 
     result = value.AttrDict()

@@ -1,8 +1,12 @@
+#! coding=utf8
 from __future__ import print_function
 import sys
 import os
 import glob
 import unittest
+
+reload(sys)
+sys.setdefaultencoding("utf8")
 
 dirname = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if dirname not in sys.path:

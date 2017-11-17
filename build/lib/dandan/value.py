@@ -5,6 +5,31 @@ import json
 
 class AttrDict(dict):
 
+    """
+    Use dict key as attr
+
+    **examples**
+
+    .. code-block:: python
+        :linenos:
+
+        data = Attrdict()
+
+        # after two lines are equal statement
+        data.key1 = 1
+        data["key1"] = 1
+
+
+        # defaut value also is Attrdict after line is allowed
+        data.key2.key.key.key = 5
+
+        # if plus or minus a number the default value is 0
+        data.key3 += 5
+        assest(data.key2 == 5)
+
+    enjoys!!!
+    """
+
     def __init__(self, dic={}, json_string=None, *args, **kwargs):
         for arg in args:
             for var in arg:
@@ -42,14 +67,37 @@ class AttrDict(dict):
     def __setitem__(self, key, value):
         if type(value) == dict:
             value = AttrDict(**value)
+        if type(value) == list:
+            values = []
+            for item in value:
+                if type(item) == dict:
+                    values.append(AttrDict(**item))
+                else:
+                    values.append(item)
+            value = values
+
         dict.__setitem__(self, key, value)
 
     def dict(self):
+        """
+        return dict object of current instance
+
+        Returns:
+            * dict: convert from current instance
+        """
         res = {}
         for var in self:
             value = self[var]
             if isinstance(value, AttrDict):
                 value = value.dict()
+            if isinstance(value, list):
+                values = []
+                for item in value:
+                    if isinstance(item, AttrDict):
+                        values.append(item.dict())
+                    else:
+                        values.append(item)
+                value = values
             res[var] = value
         return res
 
@@ -62,12 +110,12 @@ class AttrDict(dict):
     def __add__(self, other):
         if not self:
             return other
-        raise Exception("Dict not empty.")
+        raise ValueError("Dict not empty.")
 
     def __sub__(self, other):
         if not self:
             return -other
-        raise Exception("Dict not empty.")
+        raise ValueError("Dict not empty.")
 
     def __str__(self):
         return super(AttrDict, self).__str__()
@@ -90,6 +138,15 @@ class AttrDict(dict):
 
 
 def get_pickle(filename):
+    """
+    Load file as pickle object
+
+    Args:
+        * filename (string): local system filename
+
+    Returns:
+        * object: if file is pickled data else None
+    """
     import os
     import pickle
     if not os.path.exists(filename):
@@ -103,6 +160,13 @@ def get_pickle(filename):
 
 
 def put_pickle(data, filename):
+    """
+    Save object as pickle to filename
+
+    Args:
+        * data (object): any can pickled object
+        * filename (string): local system filename
+    """
     import os
     import pickle
     filename = os.path.abspath(filename)
@@ -114,6 +178,15 @@ def put_pickle(data, filename):
 
 
 def get_json(filename):
+    """
+    Load file as pickle object
+
+    Args:
+        * filename (string): local system filename
+
+    Returns:
+        * object: if file is json data else None
+    """
     import os
     import json
     if not os.path.exists(filename):
@@ -127,6 +200,13 @@ def get_json(filename):
 
 
 def put_json(data, filename):
+    """
+    Save object as json string to filename
+
+    Args:
+        * data (object): any can jsoned object
+        * filename (string): local system filename
+    """
     import os
     import json
     filename = os.path.abspath(filename)
@@ -138,7 +218,16 @@ def put_json(data, filename):
 
 
 def md5(data=None, filename=None):
-    # get data or file md5 value
+    '''
+    get data or file md5 checksum
+
+    Args:
+        * data (string, optional): string
+        * filename (string, optional): local system filename
+
+    Returns:
+        * string: md5 checksum
+    '''
     import hashlib
     m = hashlib.md5()
     if data:
@@ -154,7 +243,16 @@ def md5(data=None, filename=None):
 
 
 def sha1(data=None, filename=None):
-    # get data or file sha1 value
+    '''
+    get data or file sha1 checksum
+
+    Args:
+        * data (string, optional): string
+        * filename (string, optional): local system filename
+
+    Returns:
+        * string: sha1 checksum
+    '''
     import hashlib
     m = hashlib.sha1()
     if data:
@@ -170,7 +268,15 @@ def sha1(data=None, filename=None):
 
 
 def is_number(number):
-    '''test parameter is number True or False'''
+    '''
+    Test parameter is number True or False
+
+    Args:
+        * number (TYPE): any object
+
+    Returns:
+        * bool: True if number is float value or False
+    '''
     try:
         float(number)
         return True
@@ -179,7 +285,15 @@ def is_number(number):
 
 
 def number(num):
-    '''convert parameter to float or None'''
+    '''
+    convert parameter to float or None
+
+    Args:
+        * num (TYPE): any object
+
+    Returns:
+        * float: num float value or None
+    '''
     try:
         return float(num)
     except Exception:

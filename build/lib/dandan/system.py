@@ -2,26 +2,53 @@ from __future__ import unicode_literals
 
 
 def is_win32():
+    """
+    Check os platform is win32
+
+    Returns:
+        bool: True if is win32 else False
+    """
     import sys
     return "win32" in sys.platform
 
 
 def is_linux():
+    """
+    Check os platform is linux
+
+    Returns:
+        bool: True if is linux else False
+    """
     import sys
     return "linux" in sys.platform
 
 
 def is_python2():
+    """
+    Check current interpreter is python2
+
+    Returns:
+        bool: True if is python2 else False
+    """
     import sys
     return sys.version_info.major == 2
 
 
 def is_python3():
+    """
+    Check current interpreter is python3
+
+    Returns:
+        bool: True if is python3 else False
+    """
     import sys
     return sys.version_info.major == 3
 
 
 def set_unicode():
+    """
+    Set default encoding to utf8
+    """
     if is_python3():
         return
 
@@ -34,9 +61,13 @@ def execute(command, callback=None):
     '''
     Execute a system command return status and output
 
-    :param command: execute command command must not bash command
-    :param callback: callback function per output line where callback not None
-    :returns: tuple (output, status)
+    Args:
+        command (TYPE): execute command command must not bash command
+        callback (None, optional): callback function per output line
+
+    Returns:
+        string: console output
+        int: execute exit code
     '''
 
     import subprocess
@@ -74,8 +105,11 @@ def readable(path):
     '''
     Check if a given path is readable by the current user.
 
-    :param path: The path to check
-    :returns: True or False
+    Args:
+        path (string): local system path
+
+    Returns:
+        bool: True if readable else False
     '''
 
     import os
@@ -86,14 +120,15 @@ def readable(path):
 
 
 def writeable(path, check_parent=True):
-
     '''
     Check if a given path is writeable by the current user.
 
-    :param path: The path to check
-    :param check_parent: If the path to check does not exist, check for the
-           ability to write to the parent directory instead
-    :returns: True or False
+    Args:
+        * path (string): local system path
+        * check_parent (bool, optional): If the path to check does not exist, check for the ability to write to the parent directory instead
+
+    Returns:
+        * bool: True if writeable else False
     '''
     import os
     if os.access(path, os.F_OK) and os.access(path, os.W_OK):
@@ -150,6 +185,12 @@ def __getch_linux():
 
 
 def getch():
+    """
+    Get a char pressed on keyboard without press Enter
+
+    Returns:
+        char(s): return pressed key
+    """
     if is_win32():
         ch = __getch_win32()
     elif is_linux():
@@ -164,6 +205,9 @@ def getch():
 
 
 def clear():
+    """
+    Clear console screen
+    """
     import os
     if is_win32():
         os.system("cls")

@@ -172,7 +172,8 @@
 <span id="dandan-package"></span><h1>dandan package<a class="headerlink" href="#module-dandan.__init__" title="Permalink to this headline">¶</a></h1>
 <p><strong>Events</strong></p>
 <ul class="simple">
-<li>2017-11-15 [0.2.2] update document of project</li>
+<li>2017-11-17 [0.2.3] update document for project enhance AttrDict class</li>
+<li>2017-11-15 [0.2.2] update document for project</li>
 <li>2017-10-14 move to another github project</li>
 <li>2017-06-25 add function system.clear</li>
 <li>2017-06-23 add function system.getch</li>
@@ -188,39 +189,88 @@
 <dt id="dandan.query.html">
 <code class="descclassname">dandan.query.</code><code class="descname">html</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.query.html" title="Permalink to this definition">¶</a></dt>
 <dd><p>get html string object by url</p>
-<p>kwargs:</p>
-<blockquote>
-<div>timeout : set get timeout default 60
-retry: set retry count default 0
-headers: set http headers
-encoding: page encoding</div></blockquote>
 <dl class="docutils">
-<dt>notice:</dt>
-<dd>default User-Agent : “Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0”</dd>
+<dt>User-Agent :</dt>
+<dd>default “Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:52.0) Gecko/20100101 Firefox/52.0”
+modify User-Agent put to headers in kwargs</dd>
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>url (string): requested http url</li>
+<li>kwargs</li>
+<li>timeout : set get timeout default 60</li>
+<li>headers : set http headers have User-Agent</li>
+<li>params : set http parameters</li>
+<li>retry : set retry count default 0</li>
+<li>encoding : page encoding default utf8</li>
+<li>method : set http method default get</li>
+<li>json : if True return json else return string</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd>string: if request correct else None</dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="dandan.query.json">
 <code class="descclassname">dandan.query.</code><code class="descname">json</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.query.json" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>get json object by url familiar html if http return json or None</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>url (string): requested http url</li>
+<li>**kwargs: same as <a class="reference internal" href="#dandan.query.html" title="dandan.query.html"><code class="xref py py-func docutils literal"><span class="pre">html()</span></code></a></li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd>json: if request correct else None</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.query.local_ip">
 <code class="descclassname">dandan.query.</code><code class="descname">local_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.query.local_ip" title="Permalink to this definition">¶</a></dt>
-<dd><p>get local ip address</p>
+<dd><p>get local ip address for IP V4</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>string: current machine ip</dd>
+<dt>TODO:</dt>
+<dd>ip v6 not implement</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="dandan.query.soup">
 <code class="descclassname">dandan.query.</code><code class="descname">soup</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.query.soup" title="Permalink to this definition">¶</a></dt>
-<dd><p>get BeautifulSoup object by url familiar html by return BeautifulSoup object</p>
+<dd><p>get BeautifulSoup object by url</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>url (string): requested http url</li>
+<li>**kwargs: same as <a class="reference internal" href="#dandan.query.html" title="dandan.query.html"><code class="xref py py-func docutils literal"><span class="pre">html()</span></code></a></li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd>BeautifulSoup: if request correct else None</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="dandan.query.whois">
 <code class="descclassname">dandan.query.</code><code class="descname">whois</code><span class="sig-paren">(</span><em>ip</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.query.whois" title="Permalink to this definition">¶</a></dt>
-<dd><p>get whois infommation (developing)</p>
+<dd><p>Get whois infommation (developing)</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>ip (string): request for whois</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>AttrDict: if get whois currect else None</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -229,95 +279,108 @@ encoding: page encoding</div></blockquote>
 <dl class="function">
 <dt id="dandan.system.clear">
 <code class="descclassname">dandan.system.</code><code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.clear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Clear console screen</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.system.execute">
 <code class="descclassname">dandan.system.</code><code class="descname">execute</code><span class="sig-paren">(</span><em>command</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.execute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute a system command return status and output</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>command</strong> – execute command command must not bash command</li>
-<li><strong>callback</strong> – callback function per output line where callback not None</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">tuple (output, status)</p>
-</td>
-</tr>
-</tbody>
-</table>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>command (TYPE): execute command command must not bash command
+callback (None, optional): callback function per output line</dd>
+<dt>Returns:</dt>
+<dd>string: console output
+int: execute exit code</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="dandan.system.getch">
 <code class="descclassname">dandan.system.</code><code class="descname">getch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.getch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get a char pressed on keyboard without press Enter</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>char(s): return pressed key</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.system.is_linux">
 <code class="descclassname">dandan.system.</code><code class="descname">is_linux</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.is_linux" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Check os platform is linux</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>bool: True if is linux else False</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.system.is_python2">
 <code class="descclassname">dandan.system.</code><code class="descname">is_python2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.is_python2" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Check current interpreter is python2</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>bool: True if is python2 else False</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.system.is_python3">
 <code class="descclassname">dandan.system.</code><code class="descname">is_python3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.is_python3" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Check current interpreter is python3</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>bool: True if is python3 else False</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.system.is_win32">
 <code class="descclassname">dandan.system.</code><code class="descname">is_win32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.is_win32" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Check os platform is win32</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>bool: True if is win32 else False</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.system.readable">
 <code class="descclassname">dandan.system.</code><code class="descname">readable</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.readable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if a given path is readable by the current user.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – The path to check</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True or False</td>
-</tr>
-</tbody>
-</table>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>path (string): local system path</dd>
+<dt>Returns:</dt>
+<dd>bool: True if readable else False</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="dandan.system.set_unicode">
 <code class="descclassname">dandan.system.</code><code class="descname">set_unicode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.set_unicode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Set default encoding to utf8</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.system.writeable">
 <code class="descclassname">dandan.system.</code><code class="descname">writeable</code><span class="sig-paren">(</span><em>path</em>, <em>check_parent=True</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.writeable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if a given path is writeable by the current user.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>path</strong> – The path to check</li>
-<li><strong>check_parent</strong> – If the path to check does not exist, check for the
-ability to write to the parent directory instead</li>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>path (string): local system path</li>
+<li>check_parent (bool, optional): If the path to check does not exist, check for the ability to write to the parent directory instead</li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True or False</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bool: True if writeable else False</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -326,12 +389,50 @@ ability to write to the parent directory instead</li>
 <dl class="function">
 <dt id="dandan.traffic.download">
 <code class="descclassname">dandan.traffic.</code><code class="descname">download</code><span class="sig-paren">(</span><em>url</em>, <em>filename</em>, <em>callback=None</em>, <em>force=False</em>, <em>headers={}</em>, <em>check_length=False</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.traffic.download" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Download http file to filename</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>url (string): http url for download</li>
+<li>filename (string): local system filename to save file</li>
+<li>callback (function, optional): callback function when file downloading</li>
+<li>force (bool, optional): redownload if filename exists default False</li>
+<li>headers (dict, optional): http headers</li>
+<li>check_length (bool, optional): Check length for downloaded file and http headers content-length</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bool: success status</li>
+<li>string: file length if correct else error information</li>
+<li>int : spend time for download period</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.traffic.upload">
 <code class="descclassname">dandan.traffic.</code><code class="descname">upload</code><span class="sig-paren">(</span><em>filename</em>, <em>url</em>, <em>callback=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.traffic.upload" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Upload filename to url</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>filename (string): local system filename to upload</li>
+<li>url (string): http url</li>
+<li>callback (function, optional): callback function when file downloading</li>
+<li>kwargs: parameters for http</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bool: success status</li>
+<li>string: url return content if correct else error information</li>
+<li>int : spend time for download period</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="section" id="module-dandan.value">
@@ -340,54 +441,188 @@ ability to write to the parent directory instead</li>
 <dt id="dandan.value.AttrDict">
 <em class="property">class </em><code class="descclassname">dandan.value.</code><code class="descname">AttrDict</code><span class="sig-paren">(</span><em>dic={}</em>, <em>json_string=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.AttrDict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#dandan.value.AttrDict.dict" title="dandan.value.AttrDict.dict"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a></p>
+<p>Use dict key as attr</p>
+<p><strong>examples</strong></p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">Attrdict</span><span class="p">()</span>
+
+<span class="c1"># after two lines are equal statement</span>
+<span class="n">data</span><span class="o">.</span><span class="n">key1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="c1"># defaut value also is Attrdict after line is allowed</span>
+<span class="n">data</span><span class="o">.</span><span class="n">key2</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># if plus or minus a number the default value is 0</span>
+<span class="n">data</span><span class="o">.</span><span class="n">key3</span> <span class="o">+=</span> <span class="mi">5</span>
+<span class="n">assest</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">key2</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>enjoys!!!</p>
 <dl class="method">
 <dt id="dandan.value.AttrDict.dict">
 <code class="descname">dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.AttrDict.dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>return dict object of current instance</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>dict: convert from current instance</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="function">
 <dt id="dandan.value.get_json">
 <code class="descclassname">dandan.value.</code><code class="descname">get_json</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.get_json" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Load file as pickle object</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>filename (string): local system filename</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>object: if file is json data else None</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.value.get_pickle">
 <code class="descclassname">dandan.value.</code><code class="descname">get_pickle</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.get_pickle" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Load file as pickle object</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>filename (string): local system filename</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>object: if file is pickled data else None</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.value.is_number">
 <code class="descclassname">dandan.value.</code><code class="descname">is_number</code><span class="sig-paren">(</span><em>number</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.is_number" title="Permalink to this definition">¶</a></dt>
-<dd><p>test parameter is number True or False</p>
+<dd><p>Test parameter is number True or False</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>number (TYPE): any object</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bool: True if number is float value or False</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="dandan.value.md5">
 <code class="descclassname">dandan.value.</code><code class="descname">md5</code><span class="sig-paren">(</span><em>data=None</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.md5" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>get data or file md5 checksum</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>data (string, optional): string</li>
+<li>filename (string, optional): local system filename</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>string: md5 checksum</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.value.number">
 <code class="descclassname">dandan.value.</code><code class="descname">number</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.number" title="Permalink to this definition">¶</a></dt>
 <dd><p>convert parameter to float or None</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>num (TYPE): any object</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>float: num float value or None</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="dandan.value.put_json">
 <code class="descclassname">dandan.value.</code><code class="descname">put_json</code><span class="sig-paren">(</span><em>data</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.put_json" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Save object as json string to filename</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>data (object): any can jsoned object</li>
+<li>filename (string): local system filename</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.value.put_pickle">
 <code class="descclassname">dandan.value.</code><code class="descname">put_pickle</code><span class="sig-paren">(</span><em>data</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.put_pickle" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Save object as pickle to filename</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>data (object): any can pickled object</li>
+<li>filename (string): local system filename</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="function">
 <dt id="dandan.value.sha1">
 <code class="descclassname">dandan.value.</code><code class="descname">sha1</code><span class="sig-paren">(</span><em>data=None</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.sha1" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>get data or file sha1 checksum</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>data (string, optional): string</li>
+<li>filename (string, optional): local system filename</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>string: sha1 checksum</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>

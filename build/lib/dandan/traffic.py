@@ -6,6 +6,22 @@ import requests
 
 
 def download(url, filename, callback=None, force=False, headers={}, check_length=False):
+    """
+    Download http file to filename
+
+    Args:
+        * url (string): http url for download
+        * filename (string): local system filename to save file
+        * callback (function, optional): callback function when file downloading
+        * force (bool, optional): redownload if filename exists default False
+        * headers (dict, optional): http headers
+        * check_length (bool, optional): Check length for downloaded file and http headers content-length
+
+    Returns:
+        * bool: success status
+        * string: file length if correct else error information
+        * int : spend time for download period
+    """
     start = time.time()
     if not force and os.path.exists(filename) and os.path.getsize(filename) > 0:
         return (True, filename, time.time() - start)
@@ -42,6 +58,20 @@ def download(url, filename, callback=None, force=False, headers={}, check_length
 
 
 def upload(filename, url, callback=None, **kwargs):
+    """
+    Upload filename to url
+
+    Args:
+        * filename (string): local system filename to upload
+        * url (string): http url
+        * callback (function, optional): callback function when file downloading
+        * kwargs: parameters for http
+
+    Returns:
+        * bool: success status
+        * string: url return content if correct else error information
+        * int : spend time for download period
+    """
     class IterableToFileAdapter(object):
         def __init__(self, iterable):
             self.iterator = iter(iterable)
