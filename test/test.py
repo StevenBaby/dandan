@@ -1,5 +1,5 @@
 #! coding=utf8
-from __future__ import print_function
+from __future__ import print_function, uni
 import sys
 import os
 import glob

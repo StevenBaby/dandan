@@ -91,6 +91,8 @@
               <!-- Local TOC -->
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">Welcome to dandan’s documentation!</a></li>
+<li><a class="reference internal" href="#id1">show in pypi</a></li>
+<li><a class="reference internal" href="#id2">show in github</a></li>
 <li><a class="reference internal" href="#module-dandan.__init__">dandan package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-dandan.query">dandan.query module</a></li>
@@ -165,6 +167,12 @@
             
   <div class="section" id="welcome-to-dandan-s-documentation">
 <h1>Welcome to dandan’s documentation!<a class="headerlink" href="#welcome-to-dandan-s-documentation" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="id1">
+<h1><a class="reference external" href="https://pypi.python.org/pypi/dandan">show in pypi</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="id2">
+<h1><a class="reference external" href="https://github.com/StevenKjp/dandan">show in github</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -172,6 +180,7 @@
 <span id="dandan-package"></span><h1>dandan package<a class="headerlink" href="#module-dandan.__init__" title="Permalink to this headline">¶</a></h1>
 <p><strong>Events</strong></p>
 <ul class="simple">
+<li>2017-11-19 [0.3.0] add function dandan.value.length</li>
 <li>2017-11-17 [0.2.3] update document for project enhance AttrDict class</li>
 <li>2017-11-15 [0.2.2] update document for project</li>
 <li>2017-10-14 move to another github project</li>
@@ -187,7 +196,7 @@
 <span id="dandan-query-module"></span><h2>dandan.query module<a class="headerlink" href="#module-dandan.query" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="dandan.query.html">
-<code class="descclassname">dandan.query.</code><code class="descname">html</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.query.html" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.query.</code><code class="descname">html</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/query.html#html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.query.html" title="Permalink to this definition">¶</a></dt>
 <dd><p>get html string object by url</p>
 <dl class="docutils">
 <dt>User-Agent :</dt>
@@ -213,7 +222,7 @@ modify User-Agent put to headers in kwargs</dd>
 
 <dl class="function">
 <dt id="dandan.query.json">
-<code class="descclassname">dandan.query.</code><code class="descname">json</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.query.json" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.query.</code><code class="descname">json</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/query.html#json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.query.json" title="Permalink to this definition">¶</a></dt>
 <dd><p>get json object by url familiar html if http return json or None</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -229,7 +238,7 @@ modify User-Agent put to headers in kwargs</dd>
 
 <dl class="function">
 <dt id="dandan.query.local_ip">
-<code class="descclassname">dandan.query.</code><code class="descname">local_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.query.local_ip" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.query.</code><code class="descname">local_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/query.html#local_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.query.local_ip" title="Permalink to this definition">¶</a></dt>
 <dd><p>get local ip address for IP V4</p>
 <dl class="docutils">
 <dt>Returns:</dt>
@@ -241,7 +250,7 @@ modify User-Agent put to headers in kwargs</dd>
 
 <dl class="function">
 <dt id="dandan.query.soup">
-<code class="descclassname">dandan.query.</code><code class="descname">soup</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.query.soup" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.query.</code><code class="descname">soup</code><span class="sig-paren">(</span><em>url</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/query.html#soup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.query.soup" title="Permalink to this definition">¶</a></dt>
 <dd><p>get BeautifulSoup object by url</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -257,7 +266,7 @@ modify User-Agent put to headers in kwargs</dd>
 
 <dl class="function">
 <dt id="dandan.query.whois">
-<code class="descclassname">dandan.query.</code><code class="descname">whois</code><span class="sig-paren">(</span><em>ip</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.query.whois" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.query.</code><code class="descname">whois</code><span class="sig-paren">(</span><em>ip</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/query.html#whois"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.query.whois" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get whois infommation (developing)</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -278,13 +287,13 @@ modify User-Agent put to headers in kwargs</dd>
 <span id="dandan-system-module"></span><h2>dandan.system module<a class="headerlink" href="#module-dandan.system" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="dandan.system.clear">
-<code class="descclassname">dandan.system.</code><code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.clear" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.system.</code><code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear console screen</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="dandan.system.execute">
-<code class="descclassname">dandan.system.</code><code class="descname">execute</code><span class="sig-paren">(</span><em>command</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.execute" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.system.</code><code class="descname">execute</code><span class="sig-paren">(</span><em>command</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.execute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute a system command return status and output</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -298,7 +307,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.system.getch">
-<code class="descclassname">dandan.system.</code><code class="descname">getch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.getch" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.system.</code><code class="descname">getch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#getch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.getch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a char pressed on keyboard without press Enter</p>
 <dl class="docutils">
 <dt>Returns:</dt>
@@ -308,7 +317,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.system.is_linux">
-<code class="descclassname">dandan.system.</code><code class="descname">is_linux</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.is_linux" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.system.</code><code class="descname">is_linux</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#is_linux"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.is_linux" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check os platform is linux</p>
 <dl class="docutils">
 <dt>Returns:</dt>
@@ -318,7 +327,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.system.is_python2">
-<code class="descclassname">dandan.system.</code><code class="descname">is_python2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.is_python2" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.system.</code><code class="descname">is_python2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#is_python2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.is_python2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check current interpreter is python2</p>
 <dl class="docutils">
 <dt>Returns:</dt>
@@ -328,7 +337,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.system.is_python3">
-<code class="descclassname">dandan.system.</code><code class="descname">is_python3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.is_python3" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.system.</code><code class="descname">is_python3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#is_python3"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.is_python3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check current interpreter is python3</p>
 <dl class="docutils">
 <dt>Returns:</dt>
@@ -338,7 +347,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.system.is_win32">
-<code class="descclassname">dandan.system.</code><code class="descname">is_win32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.is_win32" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.system.</code><code class="descname">is_win32</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#is_win32"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.is_win32" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check os platform is win32</p>
 <dl class="docutils">
 <dt>Returns:</dt>
@@ -348,7 +357,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.system.readable">
-<code class="descclassname">dandan.system.</code><code class="descname">readable</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.readable" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.system.</code><code class="descname">readable</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#readable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.readable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if a given path is readable by the current user.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -360,13 +369,13 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.system.set_unicode">
-<code class="descclassname">dandan.system.</code><code class="descname">set_unicode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.set_unicode" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.system.</code><code class="descname">set_unicode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#set_unicode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.set_unicode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set default encoding to utf8</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="dandan.system.writeable">
-<code class="descclassname">dandan.system.</code><code class="descname">writeable</code><span class="sig-paren">(</span><em>path</em>, <em>check_parent=True</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.system.writeable" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.system.</code><code class="descname">writeable</code><span class="sig-paren">(</span><em>path</em>, <em>check_parent=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#writeable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.writeable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if a given path is writeable by the current user.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -388,7 +397,7 @@ int: execute exit code</dd>
 <span id="dandan-traffic-module"></span><h2>dandan.traffic module<a class="headerlink" href="#module-dandan.traffic" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="dandan.traffic.download">
-<code class="descclassname">dandan.traffic.</code><code class="descname">download</code><span class="sig-paren">(</span><em>url</em>, <em>filename</em>, <em>callback=None</em>, <em>force=False</em>, <em>headers={}</em>, <em>check_length=False</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.traffic.download" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.traffic.</code><code class="descname">download</code><span class="sig-paren">(</span><em>url</em>, <em>filename</em>, <em>callback=None</em>, <em>force=False</em>, <em>headers={}</em>, <em>check_length=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/traffic.html#download"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.traffic.download" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download http file to filename</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -413,7 +422,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.traffic.upload">
-<code class="descclassname">dandan.traffic.</code><code class="descname">upload</code><span class="sig-paren">(</span><em>filename</em>, <em>url</em>, <em>callback=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.traffic.upload" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.traffic.</code><code class="descname">upload</code><span class="sig-paren">(</span><em>filename</em>, <em>url</em>, <em>callback=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/traffic.html#upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.traffic.upload" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upload filename to url</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -439,7 +448,7 @@ int: execute exit code</dd>
 <span id="dandan-value-module"></span><h2>dandan.value module<a class="headerlink" href="#module-dandan.value" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="dandan.value.AttrDict">
-<em class="property">class </em><code class="descclassname">dandan.value.</code><code class="descname">AttrDict</code><span class="sig-paren">(</span><em>dic={}</em>, <em>json_string=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.AttrDict" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">dandan.value.</code><code class="descname">AttrDict</code><span class="sig-paren">(</span><em>dic={}</em>, <em>json_string=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#AttrDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.AttrDict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#dandan.value.AttrDict.dict" title="dandan.value.AttrDict.dict"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a></p>
 <p>Use dict key as attr</p>
 <p><strong>examples</strong></p>
@@ -473,7 +482,7 @@ int: execute exit code</dd>
 <p>enjoys!!!</p>
 <dl class="method">
 <dt id="dandan.value.AttrDict.dict">
-<code class="descname">dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.AttrDict.dict" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#AttrDict.dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.AttrDict.dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>return dict object of current instance</p>
 <dl class="docutils">
 <dt>Returns:</dt>
@@ -488,7 +497,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.value.get_json">
-<code class="descclassname">dandan.value.</code><code class="descname">get_json</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.get_json" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.value.</code><code class="descname">get_json</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#get_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.get_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load file as pickle object</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -506,7 +515,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.value.get_pickle">
-<code class="descclassname">dandan.value.</code><code class="descname">get_pickle</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.get_pickle" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.value.</code><code class="descname">get_pickle</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#get_pickle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.get_pickle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load file as pickle object</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -524,7 +533,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.value.is_number">
-<code class="descclassname">dandan.value.</code><code class="descname">is_number</code><span class="sig-paren">(</span><em>number</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.is_number" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.value.</code><code class="descname">is_number</code><span class="sig-paren">(</span><em>number</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#is_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.is_number" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test parameter is number True or False</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -541,8 +550,28 @@ int: execute exit code</dd>
 </dd></dl>
 
 <dl class="function">
+<dt id="dandan.value.length">
+<code class="descclassname">dandan.value.</code><code class="descname">length</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get true size of string or char, char might be 1 or 2, string accumulate all of char</p>
+<p><strong>example</strong></p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dandan</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="s2">&quot;test string&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">11</span>
+<span class="n">dandan</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="s2">&quot;测试字符串&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="n">dandan</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="s2">&quot;测试字符串 test string&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">22</span>
+</pre></div>
+</td></tr></table></div>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>string (string or char): requested</dd>
+<dt>Returns:</dt>
+<dd>int: size of string or char</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="dandan.value.md5">
-<code class="descclassname">dandan.value.</code><code class="descname">md5</code><span class="sig-paren">(</span><em>data=None</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.md5" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.value.</code><code class="descname">md5</code><span class="sig-paren">(</span><em>data=None</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#md5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.md5" title="Permalink to this definition">¶</a></dt>
 <dd><p>get data or file md5 checksum</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -561,7 +590,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.value.number">
-<code class="descclassname">dandan.value.</code><code class="descname">number</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.number" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.value.</code><code class="descname">number</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.number" title="Permalink to this definition">¶</a></dt>
 <dd><p>convert parameter to float or None</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -579,7 +608,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.value.put_json">
-<code class="descclassname">dandan.value.</code><code class="descname">put_json</code><span class="sig-paren">(</span><em>data</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.put_json" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.value.</code><code class="descname">put_json</code><span class="sig-paren">(</span><em>data</em>, <em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#put_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.put_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save object as json string to filename</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -593,7 +622,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.value.put_pickle">
-<code class="descclassname">dandan.value.</code><code class="descname">put_pickle</code><span class="sig-paren">(</span><em>data</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.put_pickle" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.value.</code><code class="descname">put_pickle</code><span class="sig-paren">(</span><em>data</em>, <em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#put_pickle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.put_pickle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save object as pickle to filename</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -607,7 +636,7 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.value.sha1">
-<code class="descclassname">dandan.value.</code><code class="descname">sha1</code><span class="sig-paren">(</span><em>data=None</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dandan.value.sha1" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.value.</code><code class="descname">sha1</code><span class="sig-paren">(</span><em>data=None</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#sha1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.sha1" title="Permalink to this definition">¶</a></dt>
 <dd><p>get data or file sha1 checksum</p>
 <dl class="docutils">
 <dt>Args:</dt>

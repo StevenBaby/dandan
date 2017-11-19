@@ -298,3 +298,35 @@ def number(num):
         return float(num)
     except Exception:
         return None
+
+
+def length(string):
+    '''
+    Get true size of string or char, char might be 1 or 2, string accumulate all of char
+    
+    **example**
+
+    .. code-block:: python
+        :linenos:
+
+        dandan.value.length("test string") == 11
+        dandan.value.length("测试字符串") == 10
+        dandan.value.length("测试字符串 test string") == 22
+
+    Args:
+        string (string or char): requested
+    
+    Returns:
+        int: size of string or char
+    '''
+    if len(string) > 1:
+        accumulate = 0
+        for char in string:
+            accumulate += length(char)
+        return accumulate
+    
+    import unicodedata
+    if unicodedata.east_asian_width(string) in {'F','W','A'}:
+        return 2
+    else:
+        return 1
