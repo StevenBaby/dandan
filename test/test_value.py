@@ -8,6 +8,7 @@ dirname = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if dirname not in sys.path:
     sys.path.insert(0, dirname)
 
+
 class TestValue(unittest.TestCase):
 
     def test_attrdict(self):
@@ -47,7 +48,6 @@ class TestValue(unittest.TestCase):
 
         self.assertEqual(data["key3"], data.key3)
 
-
     def test_length(self):
         import dandan
         print(dandan)
@@ -55,6 +55,7 @@ class TestValue(unittest.TestCase):
         self.assertEqual(dandan.value.length("test string"), 11)
         self.assertEqual(dandan.value.length("测试字符串"), 10)
         self.assertEqual(dandan.value.length("测试字符串 test string"), 22)
+
 
 if __name__ == '__main__':
     unittest.main()

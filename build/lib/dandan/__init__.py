@@ -1,6 +1,7 @@
 """
 **Events**
 
+- 2017-11-19 [0.3.1] fix bug in dandan.value.length when given string length is zero
 - 2017-11-19 [0.3.0] add function dandan.value.length
 - 2017-11-17 [0.2.3] update document for project enhance AttrDict class
 - 2017-11-15 [0.2.2] update document for project
@@ -34,6 +35,6 @@ __version__ = ".".join(
         [
             0,
             3,
-            0,
+            1,
     ]
     ])

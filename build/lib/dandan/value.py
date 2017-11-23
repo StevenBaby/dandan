@@ -303,7 +303,7 @@ def number(num):
 def length(string):
     '''
     Get true size of string or char, char might be 1 or 2, string accumulate all of char
-    
+
     **example**
 
     .. code-block:: python
@@ -315,18 +315,20 @@ def length(string):
 
     Args:
         string (string or char): requested
-    
+
     Returns:
         int: size of string or char
     '''
+    if len(string) == 0:
+        return 0
     if len(string) > 1:
         accumulate = 0
         for char in string:
             accumulate += length(char)
         return accumulate
-    
+
     import unicodedata
-    if unicodedata.east_asian_width(string) in {'F','W','A'}:
+    if unicodedata.east_asian_width(string) in {'F', 'W', 'A'}:
         return 2
     else:
         return 1
