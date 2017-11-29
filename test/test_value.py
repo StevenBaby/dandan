@@ -56,6 +56,16 @@ class TestValue(unittest.TestCase):
         self.assertEqual(dandan.value.length("测试字符串"), 10)
         self.assertEqual(dandan.value.length("测试字符串 test string"), 22)
 
+    def test_put_json(self):
+        import dandan
+
+        data = dandan.value.AttrDict()
+        data.key1 = 1
+        data.key2.key1 = 3
+        filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test.json")
+
+        dandan.value.put_json(data, filename)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,12 +1,13 @@
 from __future__ import absolute_import
 import os
 import sys
-from setuptools import setup, find_packages
+from setuptools import setup
 
 NAME = "dandan"
 INSTALL_REQUIRES = [
+    "six",
     "requests",
-    "BeautifulSoup4",
+    "beautifulsoup4",
 ]
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -24,7 +25,7 @@ readme = os.path.join(os.path.dirname(os.path.abspath(__file__)), "README")
 setup(
     name=NAME,
     version=dandan.__version__,
-    description="Several tools for internet",
+    description="Several convenient tools for python programming",
     long_description=open(readme).read(),
     packages=[NAME],
     install_requires=INSTALL_REQUIRES,
@@ -43,3 +44,9 @@ setup(
     zip_safe=True,
     platforms="any",
 )
+
+
+# python setup.py sdist bdist_wheel --universal
+# twine upload dist/*
+# pip2 install dandan --upgrade -i https://pypi.python.org/simple
+# pip3 install dandan --upgrade -i https://pypi.python.org/simple

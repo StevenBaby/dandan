@@ -1,6 +1,13 @@
 """
+**dandan package**
+
+Several convenient tools for python programming
+
+
 **Events**
 
+- 2017-11-29 [0.3.3] fix bug for put_json in python3
+- 2017-11-29 [0.3.2] add indent for dandan.value.put_json
 - 2017-11-19 [0.3.1] fix bug in dandan.value.length when given string length is zero
 - 2017-11-19 [0.3.0] add function dandan.value.length
 - 2017-11-17 [0.2.3] update document for project enhance AttrDict class
@@ -35,6 +42,6 @@ __version__ = ".".join(
         [
             0,
             3,
-            1,
+            3,
     ]
     ])

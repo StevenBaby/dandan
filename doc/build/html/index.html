@@ -178,8 +178,12 @@
 </div>
 <div class="section" id="module-dandan.__init__">
 <span id="dandan-package"></span><h1>dandan package<a class="headerlink" href="#module-dandan.__init__" title="Permalink to this headline">¶</a></h1>
+<p><strong>dandan package</strong></p>
+<p>Several convenient tools for python programming</p>
 <p><strong>Events</strong></p>
 <ul class="simple">
+<li>2017-11-29 [0.3.3] fix bug for put_json in python3</li>
+<li>2017-11-29 [0.3.2] add indent for dandan.value.put_json</li>
 <li>2017-11-19 [0.3.1] fix bug in dandan.value.length when given string length is zero</li>
 <li>2017-11-19 [0.3.0] add function dandan.value.length</li>
 <li>2017-11-17 [0.2.3] update document for project enhance AttrDict class</li>
@@ -609,13 +613,14 @@ int: execute exit code</dd>
 
 <dl class="function">
 <dt id="dandan.value.put_json">
-<code class="descclassname">dandan.value.</code><code class="descname">put_json</code><span class="sig-paren">(</span><em>data</em>, <em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#put_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.put_json" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.value.</code><code class="descname">put_json</code><span class="sig-paren">(</span><em>data</em>, <em>filename</em>, <em>indent=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#put_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.put_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save object as json string to filename</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><ul class="first last simple">
 <li>data (object): any can jsoned object</li>
 <li>filename (string): local system filename</li>
+<li>indent (None, optional): json indent width default None</li>
 </ul>
 </dd>
 </dl>

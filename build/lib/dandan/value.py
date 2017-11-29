@@ -199,13 +199,14 @@ def get_json(filename):
         return None
 
 
-def put_json(data, filename):
+def put_json(data, filename, indent=None):
     """
     Save object as json string to filename
 
     Args:
         * data (object): any can jsoned object
         * filename (string): local system filename
+        * indent (None, optional): json indent width default None
     """
     import os
     import json
@@ -213,8 +214,8 @@ def put_json(data, filename):
     dirname = os.path.dirname(filename)
     if not os.path.exists(dirname):
         os.makedirs(dirname)
-    with open(filename, "wb") as f:
-        f.write(json.dumps(data))
+    with open(filename, "w") as f:
+        f.write(json.dumps(data, indent=indent))
 
 
 def md5(data=None, filename=None):

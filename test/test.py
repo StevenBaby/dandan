@@ -1,12 +1,14 @@
 #! coding=utf8
-from __future__ import print_function, uni
+from __future__ import print_function, unicode_literals
 import sys
 import os
 import glob
 import unittest
+import six
 
-reload(sys)
-sys.setdefaultencoding("utf8")
+if six.PY2:
+    reload(sys)
+    sys.setdefaultencoding("utf8")
 
 dirname = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if dirname not in sys.path:
