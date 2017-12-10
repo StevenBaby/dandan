@@ -5,7 +5,7 @@ def local_ip():
     '''get local ip address for IP V4
 
     Returns:
-        string: current machine ip
+        * string: current machine ip
 
     TODO:
         ip v6 not implement

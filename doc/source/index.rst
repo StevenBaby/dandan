@@ -27,6 +27,14 @@ dandan package
 Submodules
 ----------
 
+dandan\.value module
+--------------------
+
+.. automodule:: dandan.value
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 dandan\.query module
 --------------------
 
@@ -51,10 +59,10 @@ dandan\.traffic module
     :undoc-members:
     :show-inheritance:
 
-dandan\.value module
---------------------
+dandan\.logger module
+---------------------
 
-.. automodule:: dandan.value
+.. automodule:: dandan.logger
     :members:
     :undoc-members:
     :show-inheritance:

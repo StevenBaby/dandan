@@ -6,6 +6,7 @@ Several convenient tools for python programming
 
 **Events**
 
+- 2017-12-10 [0.4.0] add getLogger method in logger
 - 2017-11-29 [0.3.3] fix bug for put_json in python3
 - 2017-11-29 [0.3.2] add indent for dandan.value.put_json
 - 2017-11-19 [0.3.1] fix bug in dandan.value.length when given string length is zero
@@ -27,6 +28,7 @@ from dandan import system
 from dandan import traffic
 from dandan import value
 from dandan import utils
+from dandan import logger
 
 __all__ = [
     "error",
@@ -35,13 +37,14 @@ __all__ = [
     "traffic",
     "value",
     "utils",
+    "logger"
 ]
 
 __version__ = ".".join(
     [str(var) for var in
         [
             0,
-            3,
-            3,
+            4,
+            0,
     ]
     ])

@@ -3,6 +3,7 @@ README
 setup.py
 dandan/__init__.py
 dandan/error.py
+dandan/logger.py
 dandan/query.py
 dandan/system.py
 dandan/traffic.py
