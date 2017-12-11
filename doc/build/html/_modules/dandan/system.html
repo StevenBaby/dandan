@@ -221,7 +221,7 @@
 <span class="sd">        callback (None, optional): callback function per output line</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        string: console output</span>
+<span class="sd">        string: console output if callback is None</span>
 <span class="sd">        int: execute exit code</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
@@ -240,6 +240,8 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">callback</span><span class="p">:</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
         <span class="n">pipe</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bytes</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">pipe</span><span class="o">.</span><span class="n">returncode</span><span class="p">)</span>
 
     <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>

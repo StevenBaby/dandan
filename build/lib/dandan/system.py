@@ -66,7 +66,7 @@ def execute(command, callback=None):
         callback (None, optional): callback function per output line
 
     Returns:
-        string: console output
+        string: console output if callback is None
         int: execute exit code
     '''
 
@@ -85,6 +85,8 @@ def execute(command, callback=None):
     if not callback:
         res = pipe.stdout.read()
         pipe.communicate()
+        if type(res) == bytes:
+            res = bytes.decode(res)
         return (res, pipe.returncode)
 
     line = ""

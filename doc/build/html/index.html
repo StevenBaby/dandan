@@ -183,6 +183,7 @@
 <p>Several convenient tools for python programming</p>
 <p><strong>Events</strong></p>
 <ul class="simple">
+<li>2017-12-11 [0.4.1] fix bug for system.execute return result with str</li>
 <li>2017-12-10 [0.4.0] add getLogger method in logger</li>
 <li>2017-11-29 [0.3.3] fix bug for put_json in python3</li>
 <li>2017-11-29 [0.3.2] add indent for dandan.value.put_json</li>
@@ -521,7 +522,7 @@ modify User-Agent put to headers in kwargs</dd>
 <dd>command (TYPE): execute command command must not bash command
 callback (None, optional): callback function per output line</dd>
 <dt>Returns:</dt>
-<dd>string: console output
+<dd>string: console output if callback is None
 int: execute exit code</dd>
 </dl>
 </dd></dl>

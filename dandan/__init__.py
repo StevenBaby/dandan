@@ -6,6 +6,7 @@ Several convenient tools for python programming
 
 **Events**
 
+- 2017-12-11 [0.4.1] fix bug for system.execute return result with str
 - 2017-12-10 [0.4.0] add getLogger method in logger
 - 2017-11-29 [0.3.3] fix bug for put_json in python3
 - 2017-11-29 [0.3.2] add indent for dandan.value.put_json
@@ -45,6 +46,6 @@ __version__ = ".".join(
         [
             0,
             4,
-            0,
+            1,
     ]
     ])
