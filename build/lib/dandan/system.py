@@ -94,6 +94,8 @@ def execute(command, callback=None):
         char = pipe.stdout.read(1)
         if not char:
             break
+        if type(char) == bytes:
+            char = bytes.decode(char)
         if char not in ["\n", "\r"]:
             line += char
             continue

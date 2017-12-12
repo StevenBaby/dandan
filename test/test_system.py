@@ -19,6 +19,8 @@ class TestValue(unittest.TestCase):
         print(result)
         print(code)
 
+        dandan.system.execute("dir", callback=lambda line: print(line))
+
 
 if __name__ == '__main__':
     unittest.main()
