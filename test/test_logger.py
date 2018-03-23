@@ -1,4 +1,4 @@
-# coding=utf8
+# coding=utf-8
 from __future__ import print_function, unicode_literals, absolute_import
 import unittest
 import os
@@ -14,10 +14,10 @@ class TestValue(unittest.TestCase):
     def test_logger(self):
         import dandan
         print(dandan)
-        logger = dandan.logger.getLogger("test")
+        logger = dandan.logger.getLogger()
 
         logger.info("hello")
-        
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -57,7 +57,7 @@ def set_unicode():
     sys.setdefaultencoding("utf8")
 
 
-def execute(command, callback=None):
+def execute(command, callback=None, timeout=0):
     '''
     Execute a system command return status and output
 
@@ -69,16 +69,18 @@ def execute(command, callback=None):
         string: console output if callback is None
         int: execute exit code
     '''
-
+    import time
+    import six
     import subprocess
     if not is_win32():
-        command = ["/bin/sh", "-c", command]
+        cmd = ["/bin/sh", "-c", command]
         shell = False
     else:
+        cmd = command
         shell = True
     try:
         pipe = subprocess.Popen(
-            command, shell=shell, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            cmd, shell=shell, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     except Exception as e:
         return e, -1
 
@@ -86,23 +88,104 @@ def execute(command, callback=None):
         res = pipe.stdout.read()
         pipe.communicate()
         if type(res) == bytes:
-            res = bytes.decode(res)
+            line = ""
+            for char in res:
+                try:
+                    char = chr(char)
+                    line += char
+                except Exception:
+                    continue
+            res = line
         return (res, pipe.returncode)
 
+    start_time = time.time()
     line = ""
     while True:
         char = pipe.stdout.read(1)
         if not char:
             break
         if type(char) == bytes:
-            char = bytes.decode(char)
+            try:
+                char = bytes.decode(char)
+            except Exception:
+                continue
         if char not in ["\n", "\r"]:
             line += char
             continue
         callback(line)
+        if timeout and (time.time() - start_time) > timeout:
+            kill(pipe.pid)
+            break
+            # return (None, 9)
         line = ""
     pipe.communicate()
     return (None, pipe.returncode)
+
+
+def kill(pid):
+    '''
+     Kill progress with pid
+
+    Args:
+        pid (int): progress id
+    '''
+    import psutil
+
+    process = psutil.Process(pid)
+    for proc in process.children(recursive=True):
+        try:
+            proc.kill()
+        except Exception:
+            continue
+    process.kill()
+
+
+def kill_command(command):
+    '''
+    Kill progress with command
+
+    Args:
+        command (string): run command
+    '''
+    if not command:
+        return
+
+    import re
+
+    if is_win32():
+        tup = command.split(" ", 1)
+        caption = tup[0]
+        if len(tup) > 1:
+            run_para = tup[1]
+        cmd = '''wmic process where name="{}" get commandline,processid'''.format(caption)
+        result, code = execute(cmd)
+        results = result.splitlines()
+        for result in results:
+            match = re.search(r"\w+ +(?P<para>.+) +(?P<pid>\d+)", result)
+            if not match:
+                continue
+            para = match.group("para").strip()
+            if para != run_para:
+                continue
+            pid = match.group("pid")
+            kill(pid)
+        return
+
+    elif is_linux():
+        cmd = '''ps -ef | grep "{}" | grep -v grep'''.format(command)
+        result, code = execute(cmd)
+        results = result.splitlines()
+        for result in results:
+            result = re.sub(" +", " ", result)
+            match = re.search(r"\w+ (?P<pid>\d+) .+:\d\d (?P<cmd>.+)", result)
+            if not match:
+                continue
+            cmd = match.group("cmd")
+            if cmd not in [command, '/bin/sh -c ' + command]:
+                continue
+            pid = match.group("pid")
+            kill(pid)
+        pass
 
 
 def readable(path):

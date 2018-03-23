@@ -175,8 +175,8 @@
     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
         <span class="n">ip</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span>
     <span class="k">finally</span><span class="p">:</span>
-        <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">ip</span></div>
+        <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+    <span class="k">return</span> <span class="n">ip</span>
 
 
 <div class="viewcode-block" id="html"><a class="viewcode-back" href="../../index.html#dandan.query.html">[docs]</a><span class="k">def</span> <span class="nf">html</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -229,8 +229,8 @@
             <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">text</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="k">continue</span>
-
-    <span class="k">return</span> <span class="kc">None</span></div>
+</div>
+    <span class="k">return</span> <span class="kc">None</span>
 
 
 <div class="viewcode-block" id="soup"><a class="viewcode-back" href="../../index.html#dandan.query.soup">[docs]</a><span class="k">def</span> <span class="nf">soup</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -245,8 +245,8 @@
 <span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span> <span class="k">as</span> <span class="n">bs</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">html</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">bs</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span></div>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">html</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span></div>
+    <span class="k">return</span> <span class="n">bs</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="json"><a class="viewcode-back" href="../../index.html#dandan.query.json">[docs]</a><span class="k">def</span> <span class="nf">json</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -258,8 +258,8 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        json: if request correct else None</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="n">html</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+<span class="sd">    &#39;&#39;&#39;</span></div>
+    <span class="k">return</span> <span class="n">html</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="whois"><a class="viewcode-back" href="../../index.html#dandan.query.whois">[docs]</a><span class="k">def</span> <span class="nf">whois</span><span class="p">(</span><span class="n">ip</span><span class="p">):</span>
@@ -284,8 +284,8 @@
 
     <span class="n">res</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">AttrDict</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
-    <span class="n">result</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">region_name</span>
-    <span class="k">return</span> <span class="n">result</span></div>
+    <span class="n">result</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">region_name</span></div>
+    <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 
            </div>

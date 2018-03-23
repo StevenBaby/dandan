@@ -6,7 +6,10 @@ Several convenient tools for python programming
 
 **Events**
 
-- 2017-12-11 [0.4.2] fix bug for system.execute in callback mode
+- 2018-03-23 [0.5.2] add default logger name as 'dandan'
+- 2017-12-13 [0.5.1] fix bug
+- 2017-12-13 [0.5.0] add system.kill and execute timeout
+- 2017-12-12 [0.4.2] fix bug for system.execute in callback mode
 - 2017-12-11 [0.4.1] fix bug for system.execute return result with str
 - 2017-12-10 [0.4.0] add getLogger method in logger
 - 2017-11-29 [0.3.3] fix bug for put_json in python3
@@ -46,7 +49,7 @@ __version__ = ".".join(
     [str(var) for var in
         [
             0,
-            4,
-            2,
+            5,
+            2
     ]
     ])

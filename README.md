@@ -1,6 +1,6 @@
 # dandan
 
-several tools
+several tools for convenient develop in python
 
 <h1>
     <a href="https://pypi.python.org/pypi/dandan">show in pypi</a>

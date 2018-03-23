@@ -183,7 +183,10 @@
 <p>Several convenient tools for python programming</p>
 <p><strong>Events</strong></p>
 <ul class="simple">
-<li>2017-12-11 [0.4.2] fix bug for system.execute in callback mode</li>
+<li>2018-03-23 [0.5.2] add default logger name as ‘dandan’</li>
+<li>2017-12-13 [0.5.1] fix bug</li>
+<li>2017-12-13 [0.5.0] add system.kill and execute timeout</li>
+<li>2017-12-12 [0.4.2] fix bug for system.execute in callback mode</li>
 <li>2017-12-11 [0.4.1] fix bug for system.execute return result with str</li>
 <li>2017-12-10 [0.4.0] add getLogger method in logger</li>
 <li>2017-11-29 [0.3.3] fix bug for put_json in python3</li>
@@ -206,10 +209,10 @@
 <dl class="class">
 <dt id="dandan.value.AttrDict">
 <em class="property">class </em><code class="descclassname">dandan.value.</code><code class="descname">AttrDict</code><span class="sig-paren">(</span><em>dic={}</em>, <em>json_string=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#AttrDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.AttrDict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#dandan.value.AttrDict.dict" title="dandan.value.AttrDict.dict"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#dandan.value.AttrDict.dict" title="dandan.value.AttrDict.dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 <p>Use dict key as attr</p>
 <p><strong>examples</strong></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -311,7 +314,7 @@
 <code class="descclassname">dandan.value.</code><code class="descname">length</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.length" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get true size of string or char, char might be 1 or 2, string accumulate all of char</p>
 <p><strong>example</strong></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dandan</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="s2">&quot;test string&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">11</span>
 <span class="n">dandan</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="s2">&quot;测试字符串&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
@@ -448,7 +451,7 @@ modify User-Agent put to headers in kwargs</dd>
 <dt>Args:</dt>
 <dd><ul class="first last simple">
 <li>url (string): requested http url</li>
-<li>**kwargs: same as <a class="reference internal" href="#dandan.query.html" title="dandan.query.html"><code class="xref py py-func docutils literal"><span class="pre">html()</span></code></a></li>
+<li>**kwargs: same as <a class="reference internal" href="#dandan.query.html" title="dandan.query.html"><code class="xref py py-func docutils literal notranslate"><span class="pre">html()</span></code></a></li>
 </ul>
 </dd>
 <dt>Returns:</dt>
@@ -479,7 +482,7 @@ modify User-Agent put to headers in kwargs</dd>
 <dt>Args:</dt>
 <dd><ul class="first last simple">
 <li>url (string): requested http url</li>
-<li>**kwargs: same as <a class="reference internal" href="#dandan.query.html" title="dandan.query.html"><code class="xref py py-func docutils literal"><span class="pre">html()</span></code></a></li>
+<li>**kwargs: same as <a class="reference internal" href="#dandan.query.html" title="dandan.query.html"><code class="xref py py-func docutils literal notranslate"><span class="pre">html()</span></code></a></li>
 </ul>
 </dd>
 <dt>Returns:</dt>
@@ -516,7 +519,7 @@ modify User-Agent put to headers in kwargs</dd>
 
 <dl class="function">
 <dt id="dandan.system.execute">
-<code class="descclassname">dandan.system.</code><code class="descname">execute</code><span class="sig-paren">(</span><em>command</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.execute" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.system.</code><code class="descname">execute</code><span class="sig-paren">(</span><em>command</em>, <em>callback=None</em>, <em>timeout=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.execute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute a system command return status and output</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -575,6 +578,27 @@ int: execute exit code</dd>
 <dl class="docutils">
 <dt>Returns:</dt>
 <dd>bool: True if is win32 else False</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="dandan.system.kill">
+<code class="descclassname">dandan.system.</code><code class="descname">kill</code><span class="sig-paren">(</span><em>pid</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#kill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.kill" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Kill progress with pid</div></blockquote>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>pid (int): progress id</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="dandan.system.kill_command">
+<code class="descclassname">dandan.system.</code><code class="descname">kill_command</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/system.html#kill_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.system.kill_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kill progress with command</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>command (string): run command</dd>
 </dl>
 </dd></dl>
 
@@ -671,12 +695,12 @@ int: execute exit code</dd>
 <span id="dandan-logger-module"></span><h2>dandan.logger module<a class="headerlink" href="#module-dandan.logger" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="dandan.logger.getLogger">
-<code class="descclassname">dandan.logger.</code><code class="descname">getLogger</code><span class="sig-paren">(</span><em>name</em>, <em>level=10</em>, <em>filename=None</em>, <em>backup_count=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/logger.html#getLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.logger.getLogger" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">dandan.logger.</code><code class="descname">getLogger</code><span class="sig-paren">(</span><em>name='dandan'</em>, <em>level=10</em>, <em>filename=None</em>, <em>backup_count=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/logger.html#getLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.logger.getLogger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get logger for convenient method</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><ul class="first last simple">
-<li>name (string): logger name</li>
+<li>name (string): logger name, default as ‘dandan’</li>
 <li>level (logger level, optional): level of this logger such as DEBUG, INFO, WARNING, ERROR, FATAL</li>
 <li>filename (string, optional): filename for timerotedlogger</li>
 <li>backup_count (int, optional): file backup count, if file count larger than count, then oldest file will be deleted.</li>
