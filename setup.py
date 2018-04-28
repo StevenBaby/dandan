@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+# from __future__ import absolute_import
 import os
 import sys
 from setuptools import setup
@@ -8,6 +8,7 @@ INSTALL_REQUIRES = [
     "six",
     "requests",
     "beautifulsoup4",
+    "psutil",
 ]
 
 base_dir = os.path.dirname(os.path.abspath(__file__))

@@ -58,7 +58,7 @@ def getLogger(name="dandan", level=logging.DEBUG, filename=None, backup_count=10
             "level": "INFO",
             "backupCount": backup_count,
         }
-        config.loggers[name].handlers.append(config.handlers.file)
+        config.loggers[name].handlers.append("file")
 
     logging.config.dictConfig(config)
     return logging.getLogger(name)

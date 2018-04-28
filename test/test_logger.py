@@ -13,10 +13,13 @@ class TestValue(unittest.TestCase):
 
     def test_logger(self):
         import dandan
-        print(dandan)
-        logger = dandan.logger.getLogger()
-
+        filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dandan.log")
+        if os.path.exists(filename):
+            os.remove(filename)
+        self.assertFalse(os.path.exists(filename))
+        logger = dandan.logger.getLogger(filename=filename)
         logger.info("hello")
+        self.assertTrue(os.path.exists(filename))
 
 
 if __name__ == '__main__':

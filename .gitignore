@@ -1,2 +1,5 @@
 *.pyc
 dist
+*.log
+/dandan.egg-info
+/build/lib/dandan

@@ -6,6 +6,7 @@ Several convenient tools for python programming
 
 **Events**
 
+- 2018-04-28 [0.5.3] fix bug for logger file
 - 2018-03-23 [0.5.2] add default logger name as 'dandan'
 - 2017-12-13 [0.5.1] fix bug
 - 2017-12-13 [0.5.0] add system.kill and execute timeout
@@ -50,6 +51,6 @@ __version__ = ".".join(
         [
             0,
             5,
-            2
+            3
     ]
     ])
