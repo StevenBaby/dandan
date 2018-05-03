@@ -1,8 +1,15 @@
 show:
-	ls build/lib --color=auto -l
+	@echo "dist : make package for project"
+	@echo "upload : upload project to pypi"
+	@echo "clean : remove dist files"
 
-dist:
+dist: dandan/*.py
 	python setup.py sdist bdist_wheel --universal
 
-upload:
+upload: dist
 	twine upload dist/*
+
+clean:
+	rm -rf dist
+	rm -rf dandan.egg-info
+	rm -rf build

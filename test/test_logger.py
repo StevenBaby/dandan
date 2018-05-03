@@ -20,6 +20,12 @@ class TestValue(unittest.TestCase):
         logger = dandan.logger.getLogger(filename=filename)
         logger.info("hello")
         self.assertTrue(os.path.exists(filename))
+        logger.info("你好世界")
+        self.assertTrue(os.path.exists(filename))
+
+        with open(filename, encoding="utf8") as file:
+            data = file.read()
+        self.assertTrue("你好世界" in data)
 
 
 if __name__ == '__main__':

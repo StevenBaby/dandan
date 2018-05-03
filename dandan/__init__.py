@@ -6,6 +6,7 @@ Several convenient tools for python programming
 
 **Events**
 
+- 2018-05-03 [0.5.4] fix bug for logger file utf8 encoding
 - 2018-04-28 [0.5.3] fix bug for logger file
 - 2018-03-23 [0.5.2] add default logger name as 'dandan'
 - 2017-12-13 [0.5.1] fix bug
@@ -51,6 +52,6 @@ __version__ = ".".join(
         [
             0,
             5,
-            3
+            4
     ]
     ])

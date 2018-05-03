@@ -57,6 +57,7 @@ def getLogger(name="dandan", level=logging.DEBUG, filename=None, backup_count=10
             'when': "MIDNIGHT",
             "level": "INFO",
             "backupCount": backup_count,
+            "encoding": "utf8",
         }
         config.loggers[name].handlers.append("file")
 
