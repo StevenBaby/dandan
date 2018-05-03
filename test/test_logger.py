@@ -3,6 +3,7 @@ from __future__ import print_function, unicode_literals, absolute_import
 import unittest
 import os
 import sys
+import six
 
 dirname = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if dirname not in sys.path:
@@ -23,8 +24,14 @@ class TestValue(unittest.TestCase):
         logger.info("你好世界")
         self.assertTrue(os.path.exists(filename))
 
-        with open(filename, encoding="utf8") as file:
-            data = file.read()
+        if six.PY3:
+            with open(filename, encoding="utf8") as file:
+                data = file.read()
+        elif six.PY2:
+            with open(filename) as file:
+                data = file.read().decode("UTF-8")
+        else:
+            return
         self.assertTrue("你好世界" in data)
 
 
