@@ -34,6 +34,5 @@ class TestValue(unittest.TestCase):
             return
         self.assertTrue("你好世界" in data)
 
-
 if __name__ == '__main__':
     unittest.main()

@@ -1,4 +1,3 @@
-#!/usr/bin/python2
 # encoding=utf-8
 import json
 
@@ -218,7 +217,7 @@ def put_json(data, filename, indent=None):
         f.write(json.dumps(data, indent=indent))
 
 
-def md5(data=None, filename=None):
+def md5(data=None, filename=None, encoding="utf8"):
     '''
     get data or file md5 checksum
 
@@ -232,7 +231,7 @@ def md5(data=None, filename=None):
     import hashlib
     m = hashlib.md5()
     if data:
-        m.update(data)
+        m.update(data.encode(encoding=encoding))
     if filename:
         with open(filename, "rb") as f:
             while True:
@@ -243,7 +242,7 @@ def md5(data=None, filename=None):
     return m.hexdigest()
 
 
-def sha1(data=None, filename=None):
+def sha1(data=None, filename=None, encoding="utf8"):
     '''
     get data or file sha1 checksum
 
@@ -257,7 +256,7 @@ def sha1(data=None, filename=None):
     import hashlib
     m = hashlib.sha1()
     if data:
-        m.update(data)
+        m.update(data.encode(encoding=encoding))
     if filename:
         with open(filename, "rb") as f:
             while True:
@@ -320,6 +319,10 @@ def length(string):
     Returns:
         int: size of string or char
     '''
+    import six
+    if six.PY2:
+        string = unicode(string)
+
     if len(string) == 0:
         return 0
     if len(string) > 1:
