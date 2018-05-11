@@ -3,7 +3,6 @@ from __future__ import print_function, unicode_literals, absolute_import
 import unittest
 import os
 import sys
-import six
 
 dirname = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if dirname not in sys.path:
@@ -13,7 +12,12 @@ if dirname not in sys.path:
 class TestValue(unittest.TestCase):
 
     def test_logger(self):
+        import six
+        import datetime
+        import time
+        import glob
         import dandan
+
         filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dandan.log")
         if os.path.exists(filename):
             os.remove(filename)
@@ -33,6 +37,31 @@ class TestValue(unittest.TestCase):
         else:
             return
         self.assertTrue("你好世界" in data)
+
+        today = datetime.date.today()
+        generate_filename = os.path.join(dirname, "*.{}.log".format(today))
+        files = glob.glob(generate_filename)
+        for name in files:
+            os.remove(name)
+
+        command = "sudo date -s 23:59:59"
+        logger.debug(command)
+        os.system(command)
+        future = time.time() + 2
+        while time.time() < future:
+            logger.info("test for split file")
+            time.sleep(0.1)
+
+        files = glob.glob(generate_filename)
+        self.assertTrue(file)
+        command = "rm *.log"
+        logger.debug(command)
+        os.system(command)
+
+        command = "sudo ntpdate cn.pool.ntp.org"
+        logger.debug(command)
+        os.system(command)
+
 
 if __name__ == '__main__':
     unittest.main()

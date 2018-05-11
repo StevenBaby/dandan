@@ -6,6 +6,7 @@ Several convenient tools for python programming
 
 **Events**
 
+- 2018-05-11 [0.5.6] modify logger roll suffix is "%Y-%m-%d.log"
 - 2018-05-07 [0.5.5] fix bug for md5 and sha1
 - 2018-05-03 [0.5.4] fix bug for logger file utf8 encoding
 - 2018-04-28 [0.5.3] fix bug for logger file
@@ -53,6 +54,6 @@ __version__ = ".".join(
         [
             0,
             5,
-            5
+            6
     ]
     ])

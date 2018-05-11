@@ -62,4 +62,12 @@ def getLogger(name="dandan", level=logging.DEBUG, filename=None, backup_count=10
         config.loggers[name].handlers.append("file")
 
     logging.config.dictConfig(config)
-    return logging.getLogger(name)
+
+    logger = logging.getLogger(name)
+    for handler in logger.handlers:
+        if handler.name != "file":
+            continue
+        if handler.suffix != "%Y-%m-%d.log":
+            handler.suffix = "%Y-%m-%d.log"
+
+    return logger
