@@ -79,7 +79,7 @@ def html(url, **kwargs):
 
 
 def soup(url, **kwargs):
-    '''get BeautifulSoup object by url
+    r'''get BeautifulSoup object by url
 
     Args:
         * url (string): requested http url
@@ -95,7 +95,7 @@ def soup(url, **kwargs):
 
 
 def json(url, **kwargs):
-    '''get json object by url familiar html if http return json or None
+    r'''get json object by url familiar html if http return json or None
 
     Args:
         * url (string): requested http url

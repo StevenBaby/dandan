@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+from __future__ import unicode_literals, absolute_import
 
 
 def is_win32():
@@ -70,7 +70,6 @@ def execute(command, callback=None, timeout=0):
         int: execute exit code
     '''
     import time
-    import six
     import subprocess
     if not is_win32():
         cmd = ["/bin/sh", "-c", command]

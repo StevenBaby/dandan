@@ -144,12 +144,13 @@
            <div itemprop="articleBody">
             
   <h1>Source code for dandan.logger</h1><div class="highlight"><pre>
-<span></span><span class="ch">#!/usr/bin/python2</span>
-<span class="c1"># encoding=utf-8</span>
-<span class="kn">from</span> <span class="nn">dandan</span> <span class="k">import</span> <span class="n">value</span>
+<span></span><span class="c1"># encoding=utf-8</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
+
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">logging.config</span>
 
+<span class="kn">from</span> <span class="nn">dandan</span> <span class="k">import</span> <span class="n">value</span>
 
 <div class="viewcode-block" id="getLogger"><a class="viewcode-back" href="../../index.html#dandan.logger.getLogger">[docs]</a><span class="k">def</span> <span class="nf">getLogger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;dandan&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">backup_count</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>

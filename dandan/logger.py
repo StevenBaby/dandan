@@ -1,9 +1,10 @@
-#!/usr/bin/python2
 # encoding=utf-8
-from dandan import value
+from __future__ import absolute_import
+
 import logging
 import logging.config
 
+from dandan import value
 
 def getLogger(name="dandan", level=logging.DEBUG, filename=None, backup_count=10):
     '''
