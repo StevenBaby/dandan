@@ -3,3 +3,4 @@ dist
 *.log
 /dandan.egg-info
 /build/lib/dandan
+/test/md5

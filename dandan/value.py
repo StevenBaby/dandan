@@ -32,6 +32,7 @@ class AttrDict(dict):
     """
 
     def __init__(self, dic={}, json_string=None, *args, **kwargs):
+
         for arg in args:
             for var in arg:
                 self[var[0]] = var[1]
@@ -45,14 +46,20 @@ class AttrDict(dict):
             self[key] = dic[key]
 
     def __getattr__(self, key):
+        if key in dir(dict):
+            return dict.__getattr__(self, key)
         if key not in self:
             self[key] = AttrDict()
         return self[key]
 
     def __setattr__(self, key, value):
+        if key in dir(dict):
+            return dict.__setattr__(self, key, value)
         self[key] = value
 
     def __delattr__(self, key):
+        if key in dir(dict):
+            return dict.__delattr__(self, key)
         del self[key]
 
     def __delitem__(self, key):
@@ -61,11 +68,15 @@ class AttrDict(dict):
         dict.__delitem__(self, key)
 
     def __getitem__(self, key):
+        if key in dir(dict):
+            return dict.__getitem__(self, key)
         if key not in self:
             self[key] = AttrDict()
         return dict.__getitem__(self, key)
 
     def __setitem__(self, key, value):
+        if key in dir(dict):
+            return dict.__setitem__(self, key, value)
         if type(value) == dict:
             value = AttrDict(**value)
         if type(value) == list:
