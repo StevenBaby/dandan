@@ -6,6 +6,7 @@ Several convenient tools for python programming
 
 **Events**
 
+- 2018-05-21 [0.6.0] add interrupt decorator
 - 2018-05-16 [0.5.8] fix bug for AttrDict member functions
 - 2018-05-12 [0.5.7] improve code robustness
 - 2018-05-11 [0.5.6] modify logger roll suffix is "%Y-%m-%d.log"
@@ -55,7 +56,7 @@ __version__ = ".".join(
     [str(var) for var in
         [
             0,
-            5,
-            8
+            6,
+            0
     ]
     ])
