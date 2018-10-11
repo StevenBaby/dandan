@@ -13,10 +13,14 @@ if project not in sys.path:
 class TestCase(unittest.TestCase):
 
     def test_import(self):
+        sys.path.insert(0, project)
         import dandan
+        import importlib
+        importlib.reload(dandan)
         filename = os.path.realpath(os.path.join(project, "dandan/__init__.py"))
         modulepath = os.path.realpath(dandan.__file__)
         self.assertEqual(os.path.splitext(modulepath)[0], os.path.splitext(filename)[0])
+        sys.path.pop(0)
 
     def test_attrdict(self):
         import dandan
@@ -73,8 +77,6 @@ class TestCase(unittest.TestCase):
             os.remove(filename)
         self.assertFalse(os.path.exists(filename))
         dandan.value.put_json(data, filename)
-        with open(filename) as file:
-            content = file.read()
         data = dandan.value.get_json(filename)
         self.assertEqual(type(data), dict)
         self.assertEqual(data["key1"], 1)
@@ -94,14 +96,13 @@ class TestCase(unittest.TestCase):
     def test_pickle(self):
         pass
 
-
     def test_md5(self):
         import dandan
         import six
         data = "hello, world!!! 你好，世界"
         self.assertEqual(dandan.value.md5(data), "dfef11310f36f88548d23a261c25269c")
 
-        filename = os.path.join(dirname,"md5")
+        filename = os.path.join(dirname, "md5")
 
         if six.PY3:
             with open(filename, "w", encoding='utf8') as file:
@@ -119,7 +120,7 @@ class TestCase(unittest.TestCase):
         data = "hello, world!!! 你好，世界"
         self.assertEqual(dandan.value.sha1(data), "f452f30df683186f327ddf67a1c7c0fc59a64409")
 
-        filename = os.path.join(dirname,"md5")
+        filename = os.path.join(dirname, "md5")
 
         if six.PY3:
             with open(filename, "w", encoding='utf8') as file:
@@ -142,6 +143,50 @@ class TestCase(unittest.TestCase):
         self.assertEqual(dandan.value.number(1234.1234), 1234.1234)
         self.assertEqual(dandan.value.number("1234"), 1234)
         self.assertEqual(dandan.value.number("hello world"), None)
+
+    def test_load_json(self):
+        import dandan
+        filename = os.path.join(dirname, 'params1.json')
+        with open(filename) as file:
+            content = file.read()
+
+        data = dandan.value.AttrDict(json_string=content)
+        self.assertEqual(data.value1, 'value1')
+        self.assertEqual(data.value2, 2)
+        self.assertEqual(data.value3, 3.0)
+
+        self.assertIsInstance(data.subdict, dandan.value.AttrDict)
+        self.assertEqual(data.subdict.value1, 'value1')
+        self.assertEqual(data.subdict.value2, 2)
+        self.assertEqual(data.subdict.value3, 3.0)
+
+        for var in data.sublist:
+            self.assertIsInstance(var, dandan.value.AttrDict)
+            self.assertEqual(var.value1, 'value1')
+            self.assertEqual(var.value2, 2)
+            self.assertEqual(var.value3, 3.0)
+
+    def test_performance(self):
+        import dandan
+        import json
+        import time
+
+        filename = os.path.join(dirname, 'params2.json')
+        with open(filename) as file:
+            content = file.read()
+
+        times = 50
+        current = time.time()
+        for _ in range(times):
+            json.loads(content)
+        print('load json time is ', time.time() - current)
+
+        current = time.time()
+        for _ in range(times):
+            dandan.value.AttrDict(json_string=content)
+        after = time.time()
+
+        print('load AttrDict time is ', after - current)
 
 
 if __name__ == '__main__':

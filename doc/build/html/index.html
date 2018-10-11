@@ -24,8 +24,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -177,6 +176,8 @@
 <p>Several convenient tools for python programming</p>
 <p><strong>Events</strong></p>
 <ul class="simple">
+<li>2018-10-11 [0.7.1] optimize performance for AttrDict and fix bug</li>
+<li>2018-10-11 [0.7.0] optimize performance for AttrDict</li>
 <li>2018-05-21 [0.6.0] add interrupt decorator</li>
 <li>2018-05-16 [0.5.8] fix bug for AttrDict member functions</li>
 <li>2018-05-12 [0.5.7] improve code robustness</li>
@@ -241,6 +242,11 @@
 </pre></div>
 </td></tr></table></div>
 <p>enjoys!!!</p>
+<dl class="attribute">
+<dt id="dandan.value.AttrDict.DICT_ATTRS">
+<code class="descname">DICT_ATTRS</code><em class="property"> = {'__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values'}</em><a class="headerlink" href="#dandan.value.AttrDict.DICT_ATTRS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="dandan.value.AttrDict.dict">
 <code class="descname">dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dandan/value.html#AttrDict.dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dandan.value.AttrDict.dict" title="Permalink to this definition">¶</a></dt>
@@ -737,7 +743,7 @@ int: execute exit code</dd>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, ccyg.
+        &copy; Copyright 2017, ccyg
 
     </p>
   </div>
@@ -756,33 +762,22 @@ int: execute exit code</dd>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'latest',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script> 
 

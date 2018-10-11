@@ -6,6 +6,8 @@ Several convenient tools for python programming
 
 **Events**
 
+- 2018-10-11 [0.7.1] optimize performance for AttrDict and fix bug
+- 2018-10-11 [0.7.0] optimize performance for AttrDict
 - 2018-05-21 [0.6.0] add interrupt decorator
 - 2018-05-16 [0.5.8] fix bug for AttrDict member functions
 - 2018-05-12 [0.5.7] improve code robustness
@@ -56,7 +58,7 @@ __version__ = ".".join(
     [str(var) for var in
         [
             0,
-            6,
-            0
+            7,
+            1
     ]
     ])

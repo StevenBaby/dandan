@@ -31,34 +31,35 @@ class AttrDict(dict):
     enjoys!!!
     """
 
+    DICT_ATTRS = set(dir(dict))
+
     def __init__(self, dic={}, json_string=None, *args, **kwargs):
 
-        for arg in args:
-            for var in arg:
-                self[var[0]] = var[1]
-        for key in kwargs:
-            self[key] = kwargs[key]
-        for key in dic:
-            self[key] = dic[key]
+        self.update(dict(args))
+        self.update(**kwargs)
+        self.update(**dic)
         if json_string:
             dic = json.loads(json_string)
-        for key in dic:
-            self[key] = dic[key]
+            self.update(dic)
+
+        for key, value in self.items():
+            if type(value) in (dict, list):
+                self[key] = self.__updatevalue__(value)
 
     def __getattr__(self, key):
-        if key in dir(dict):
+        if key in self.DICT_ATTRS:
             return dict.__getattr__(self, key)
         if key not in self:
             self[key] = AttrDict()
         return self[key]
 
     def __setattr__(self, key, value):
-        if key in dir(dict):
+        if key in self.DICT_ATTRS:
             return dict.__setattr__(self, key, value)
         self[key] = value
 
     def __delattr__(self, key):
-        if key in dir(dict):
+        if key in self.DICT_ATTRS:
             return dict.__delattr__(self, key)
         del self[key]
 
@@ -68,27 +69,25 @@ class AttrDict(dict):
         dict.__delitem__(self, key)
 
     def __getitem__(self, key):
-        if key in dir(dict):
+        if key in self.DICT_ATTRS:
             return dict.__getitem__(self, key)
-        if key not in self:
-            self[key] = AttrDict()
+        elif key not in self:
+            self[key] = type(self)()
         return dict.__getitem__(self, key)
 
-    def __setitem__(self, key, value):
-        if key in dir(dict):
-            return dict.__setitem__(self, key, value)
-        if type(value) == dict:
-            value = AttrDict(**value)
-        if type(value) == list:
-            values = []
-            for item in value:
-                if type(item) == dict:
-                    values.append(AttrDict(**item))
-                else:
-                    values.append(item)
-            value = values
+    def __updatevalue__(self, value):
+        if type(value) is dict:
+            value = type(self)(**value)
+        elif type(value) is list:
+            for index, item in enumerate(value):
+                if type(item) is dict:
+                    value[index] = type(self)(**item)
+        return value
 
-        dict.__setitem__(self, key, value)
+    def __setitem__(self, key, value):
+        if key in self.DICT_ATTRS:
+            return dict.__setitem__(self, key, value)
+        dict.__setitem__(self, key, self.__updatevalue__(value))
 
     def dict(self):
         """
@@ -100,12 +99,12 @@ class AttrDict(dict):
         res = {}
         for var in self:
             value = self[var]
-            if isinstance(value, AttrDict):
+            if isinstance(value, type(self)):
                 value = value.dict()
             if isinstance(value, list):
                 values = []
                 for item in value:
-                    if isinstance(item, AttrDict):
+                    if isinstance(item, type(self)):
                         values.append(item.dict())
                     else:
                         values.append(item)
