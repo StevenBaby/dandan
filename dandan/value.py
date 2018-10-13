@@ -36,8 +36,8 @@ class AttrDict(dict):
     def __init__(self, dic={}, json_string=None, *args, **kwargs):
 
         self.update(dict(args))
-        self.update(**kwargs)
-        self.update(**dic)
+        self.update(kwargs)
+        self.update(dic)
         if json_string:
             dic = json.loads(json_string)
             self.update(dic)
@@ -77,11 +77,11 @@ class AttrDict(dict):
 
     def __updatevalue__(self, value):
         if type(value) is dict:
-            value = type(self)(**value)
+            value = type(self)(value)
         elif type(value) is list:
             for index, item in enumerate(value):
                 if type(item) is dict:
-                    value[index] = type(self)(**item)
+                    value[index] = type(self)(item)
         return value
 
     def __setitem__(self, key, value):

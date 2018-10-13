@@ -6,6 +6,7 @@ Several convenient tools for python programming
 
 **Events**
 
+- 2018-10-13 [0.7.2] fix bug for AttrDict call dict.update
 - 2018-10-11 [0.7.1] optimize performance for AttrDict and fix bug
 - 2018-10-11 [0.7.0] optimize performance for AttrDict
 - 2018-05-21 [0.6.0] add interrupt decorator
@@ -59,6 +60,6 @@ __version__ = ".".join(
         [
             0,
             7,
-            1
+            2
     ]
     ])
