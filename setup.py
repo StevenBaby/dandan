@@ -8,7 +8,6 @@ INSTALL_REQUIRES = [
     "six",
     "requests",
     "beautifulsoup4",
-    "psutil",
 ]
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
