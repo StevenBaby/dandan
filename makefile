@@ -5,6 +5,7 @@ show:
 
 dist: dandan/*.py
 	python setup.py sdist bdist_wheel --universal
+	make html -C doc
 
 upload: dist
 	twine upload dist/*
