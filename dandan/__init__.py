@@ -6,6 +6,7 @@ Several convenient tools for python programming
 
 **Events**
 
+- 2020-10-10 [0.7.4] update info
 - 2020-10-10 [0.7.3] remove psutil in dependencies
 - 2018-10-13 [0.7.2] fix bug for AttrDict call dict.update
 - 2018-10-11 [0.7.1] optimize performance for AttrDict and fix bug
@@ -61,6 +62,6 @@ __version__ = ".".join(
         [
             0,
             7,
-            3
+            4
     ]
     ])

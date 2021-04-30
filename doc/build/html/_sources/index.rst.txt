@@ -9,7 +9,7 @@ Welcome to dandan's documentation!
 `show in pypi <https://pypi.python.org/pypi/dandan>`_
 ======================================================
 
-`show in github <https://github.com/StevenKjp/dandan>`_
+`show in github <https://github.com/StevenBaby/dandan>`_
 ========================================================
 
 .. toctree::
